@@ -1,100 +1,175 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:fillViewport="true"
+    android:clipToPadding="false"
     android:padding="16dp"
     android:background="?attr/colorSurface">
 
-    <!-- Header -->
-    <TextView
-        android:id="@+id/edit_profile_header"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/edit_profile_header"
-        android:textAppearance="?attr/textAppearanceHeadline5"
-        android:gravity="center"
-        android:paddingBottom="16dp" />
+        android:orientation="vertical">
 
-    <!-- Name -->
-    <TextView
-        android:id="@+id/name_label"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/name_label"
-        android:textAppearance="?attr/textAppearanceSubtitle1"
-        android:paddingBottom="4dp" />
-    <EditText
-        android:id="@+id/name_edit_text"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/enter_name"
-        android:inputType="textPersonName"
-        android:paddingBottom="12dp" />
+        <!-- Header -->
+        <TextView
+            android:id="@+id/edit_profile_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/edit_profile_header"
+            android:textAppearance="?attr/textAppearanceHeadline5"
+            android:gravity="center"
+            android:paddingBottom="16dp" />
 
-    <!-- Email (Non-editable) -->
-    <TextView
-        android:id="@+id/email_label"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/email_label"
-        android:textAppearance="?attr/textAppearanceSubtitle1"
-        android:paddingBottom="4dp" />
-    <TextView
-        android:id="@+id/email_text"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Loading..."
-        android:textAppearance="?attr/textAppearanceBody1"
-        android:paddingBottom="12dp" />
+        <!-- Name -->
+        <TextView
+            android:id="@+id/name_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/name_label"
+            android:textAppearance="?attr/textAppearanceSubtitle1"
+            android:alpha="0.8"
+            android:paddingBottom="4dp" />
 
-    <!-- Location -->
-    <TextView
-        android:id="@+id/location_label"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/location_label"
-        android:textAppearance="?attr/textAppearanceSubtitle1"
-        android:paddingBottom="4dp" />
-    <EditText
-        android:id="@+id/location_edit_text"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/enter_location"
-        android:inputType="text"
-        android:paddingBottom="12dp" />
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/name_input_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:boxBackgroundMode="filled"
+            app:boxBackgroundColor="?attr/colorSurface"
+            app:boxCornerRadiusTopStart="12dp"
+            app:boxCornerRadiusTopEnd="12dp"
+            app:boxCornerRadiusBottomStart="12dp"
+            app:boxCornerRadiusBottomEnd="12dp"
+            app:endIconMode="clear_text">
 
-    <!-- Farmer ID -->
-    <TextView
-        android:id="@+id/farmer_id_label"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/farmer_id_label"
-        android:textAppearance="?attr/textAppearanceSubtitle1"
-        android:paddingBottom="4dp" />
-    <EditText
-        android:id="@+id/farmer_id_edit_text"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/enter_farmer_id"
-        android:inputType="text"
-        android:paddingBottom="12dp" />
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/name_edit_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/enter_name"
+                android:inputType="textPersonName"
+                android:imeOptions="actionNext"
+                android:singleLine="true" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-    <!-- Save Button -->
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/save_profile"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="@string/save_profile"
-        android:layout_marginTop="16dp" />
+        <!-- Email (Non-editable) -->
+        <TextView
+            android:id="@+id/email_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/email_label"
+            android:textAppearance="?attr/textAppearanceSubtitle1"
+            android:alpha="0.8"
+            android:paddingTop="12dp"
+            android:paddingBottom="4dp" />
 
-    <!-- Progress Bar for Loading/Saving -->
-    <ProgressBar
-        android:id="@+id/progress_bar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:visibility="gone" />
+        <TextView
+            android:id="@+id/email_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Loading..."
+            android:textAppearance="?attr/textAppearanceBody1"
+            android:textIsSelectable="true"
+            android:paddingBottom="12dp" />
 
-</LinearLayout>
+        <!-- Divider -->
+        <com.google.android.material.divider.MaterialDivider
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp" />
+
+        <!-- Location -->
+        <TextView
+            android:id="@+id/location_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/location_label"
+            android:textAppearance="?attr/textAppearanceSubtitle1"
+            android:alpha="0.8"
+            android:paddingBottom="4dp" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/location_input_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:boxBackgroundMode="filled"
+            app:boxBackgroundColor="?attr/colorSurface"
+            app:boxCornerRadiusTopStart="12dp"
+            app:boxCornerRadiusTopEnd="12dp"
+            app:boxCornerRadiusBottomStart="12dp"
+            app:boxCornerRadiusBottomEnd="12dp"
+            app:endIconMode="clear_text">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/location_edit_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/enter_location"
+                android:inputType="text"
+                android:imeOptions="actionNext"
+                android:singleLine="true" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Farmer ID -->
+        <TextView
+            android:id="@+id/farmer_id_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/farmer_id_label"
+            android:textAppearance="?attr/textAppearanceSubtitle1"
+            android:alpha="0.8"
+            android:paddingTop="12dp"
+            android:paddingBottom="4dp" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/farmer_id_input_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:boxBackgroundMode="filled"
+            app:boxBackgroundColor="?attr/colorSurface"
+            app:boxCornerRadiusTopStart="12dp"
+            app:boxCornerRadiusTopEnd="12dp"
+            app:boxCornerRadiusBottomStart="12dp"
+            app:boxCornerRadiusBottomEnd="12dp"
+            app:endIconMode="clear_text">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/farmer_id_edit_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/enter_farmer_id"
+                android:inputType="text"
+                android:imeOptions="actionDone"
+                android:singleLine="true" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Save Button -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/save_profile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/save_profile"
+            android:textAllCaps="false"
+            android:minHeight="48dp"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="?attr/colorPrimary"
+            android:textColor="?attr/colorOnPrimary"
+            app:rippleColor="?attr/colorSecondary" />
+
+        <!-- Progress Bar for Loading/Saving -->
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="12dp"
+            android:visibility="gone"
+            android:indeterminate="true"
+            android:indeterminateTint="?attr/colorPrimary" />
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

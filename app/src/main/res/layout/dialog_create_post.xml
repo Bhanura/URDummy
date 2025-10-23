@@ -1,20 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:padding="16dp">
 
     <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/post_input_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="What's on your mind?">
+        android:hint="What's on your mind?"
+        app:boxBackgroundMode="filled"
+        app:boxBackgroundColor="?attr/colorSurface"
+        app:boxCornerRadiusTopStart="12dp"
+        app:boxCornerRadiusTopEnd="12dp"
+        app:boxCornerRadiusBottomStart="12dp"
+        app:boxCornerRadiusBottomEnd="12dp"
+        app:placeholderText="Share something with everyone..."
+        app:counterEnabled="true"
+        app:counterMaxLength="280"
+        app:endIconMode="clear_text"
+        app:hintAnimationEnabled="true"
+        app:expandedHintEnabled="true">
+
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/post_description_edit_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:minLines="3"
-            android:maxLines="5" />
+            android:maxLines="6"
+            android:gravity="top|start"
+            android:inputType="textCapSentences|textMultiLine"
+            android:imeOptions="actionDone"
+            android:maxLength="280"
+            android:lineSpacingExtra="2dp"
+            android:scrollbars="vertical"
+            android:overScrollMode="ifContentScrolls" />
     </com.google.android.material.textfield.TextInputLayout>
 
 </LinearLayout>

@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white">
+    android:fillViewport="true"
+    android:clipToPadding="false"
+    android:padding="16dp"
+    android:background="?attr/colorSurface">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -10,297 +15,358 @@
         android:orientation="vertical">
 
         <!-- Section 1: Overview -->
-        <LinearLayout
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/overview_card"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#E8F5E9"
-            android:orientation="vertical"
-            android:padding="16dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Overview"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+            android:layout_marginBottom="16dp"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="2dp"
+            app:contentPadding="16dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingTop="8dp">
+                android:orientation="vertical">
 
                 <TextView
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Active Crops: 5"
-                    android:textSize="16sp" />
+                    android:text="Overview"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="8dp" />
 
-                <TextView
-                    android:layout_width="0dp"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Tasks Today: 3"
-                    android:textSize="16sp" />
+                    android:orientation="horizontal"
+                    android:paddingTop="4dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Active Crops: 5"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Tasks Today: 3"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingTop="8dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Harvest Ready: 2"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Avg Health: 85%"
+                        android:textSize="16sp" />
+                </LinearLayout>
             </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingTop="8dp">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Harvest Ready: 2"
-                    android:textSize="16sp" />
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Avg Health: 85%"
-                    android:textSize="16sp" />
-            </LinearLayout>
-        </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
 
         <!-- Section 2: My Crops -->
-        <LinearLayout
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/my_crops_card"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#FFF3E0"
-            android:orientation="vertical"
-            android:padding="16dp">
+            android:layout_marginBottom="16dp"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="2dp"
+            app:contentPadding="16dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_vertical">
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="My Crops"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/adminPanelButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Add Crops"
+                        android:textAllCaps="false"
+                        android:minHeight="40dp"
+                        android:visibility="gone"
+                        app:rippleColor="?attr/colorSecondary" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/addCropButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:text="Add Crop"
+                        android:textAllCaps="false"
+                        android:minHeight="40dp"
+                        android:visibility="visible"
+                        app:rippleColor="?attr/colorSecondary" />
+                </LinearLayout>
+
+                <com.google.android.material.divider.MaterialDivider
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginBottom="8dp" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/cropsRecyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="4dp"
+                    android:nestedScrollingEnabled="false"
+                    android:overScrollMode="ifContentScrolls" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Section 3: Calendar Preview -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/calendar_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="2dp"
+            app:contentPadding="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Calendar"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/viewCalendarButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="View Calendar"
+                        android:textAllCaps="false"
+                        android:minHeight="40dp"
+                        app:rippleColor="?attr/colorSecondary" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/calendarPreview"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="8dp"
+                    android:text="Calendar preview placeholder"
+                    android:textSize="16sp" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Section 4: Weather -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/weather_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="2dp"
+            app:contentPadding="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="My Crops"
+                    android:text="Weather"
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
-                <View
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:layout_weight="1" />
-
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/adminPanelButton"
-                    android:layout_width="wrap_content"
+                <!-- Today's Weather Details -->
+                <TextView
+                    android:id="@+id/todayWeatherTitle"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Add Crops"
-                    android:visibility="gone" />
-
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/addCropButton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Add Crop"
-                    android:visibility="visible" />
-            </LinearLayout>
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/cropsRecyclerView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingTop="8dp" />
-        </LinearLayout>
-
-
-        <!-- Section 4: Calendar Preview -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#E3F2FD"
-            android:orientation="vertical"
-            android:padding="16dp">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_vertical">
+                    android:text="Today's Weather"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:paddingTop="8dp" />
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:id="@+id/precipitationText"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Calendar"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
+                    android:text="Precipitation: --%"
+                    android:padding="4dp" />
 
-                <View
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:layout_weight="1" />
-
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/viewCalendarButton"
-                    android:layout_width="wrap_content"
+                <TextView
+                    android:id="@+id/humidityText"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="View Calendar" />
-            </LinearLayout>
+                    android:text="Humidity: --%"
+                    android:padding="4dp" />
 
-            <TextView
-                android:id="@+id/calendarPreview"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingTop="8dp"
-                android:text="Calendar preview placeholder"
-                android:textSize="16sp" />
-        </LinearLayout>
+                <TextView
+                    android:id="@+id/windText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Wind: -- km/h"
+                    android:padding="4dp" />
 
-        <!-- Section 3: Weather -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#E3F2FD"
-            android:orientation="vertical"
-            android:padding="16dp">
+                <TextView
+                    android:id="@+id/highLowText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="H: --°C / L: --°C"
+                    android:padding="4dp" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Weather"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+                <!-- 3-Day Forecast -->
+                <TextView
+                    android:id="@+id/forecastTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="3-Day Forecast"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:paddingTop="8dp" />
 
-            <!-- Today's Weather Details -->
-            <TextView
-                android:id="@+id/todayWeatherTitle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Today's Weather"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:paddingTop="8dp" />
-
-            <TextView
-                android:id="@+id/precipitationText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Precipitation: --%"
-                android:padding="4dp" />
-
-            <TextView
-                android:id="@+id/humidityText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Humidity: --%"
-                android:padding="4dp" />
-
-            <TextView
-                android:id="@+id/windText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Wind: -- km/h"
-                android:padding="4dp" />
-
-            <TextView
-                android:id="@+id/highLowText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="H: --°C / L: --°C"
-                android:padding="4dp" />
-
-            <!-- 3-Day Forecast -->
-            <TextView
-                android:id="@+id/forecastTitle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="3-Day Forecast"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:paddingTop="8dp" />
-
-            <LinearLayout
-                android:id="@+id/forecastContainer"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:padding="8dp">
-
-                <!-- Day 1 -->
                 <LinearLayout
-                    android:layout_width="0dp"
+                    android:id="@+id/forecastContainer"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:gravity="center">
-                    <TextView
-                        android:id="@+id/day1Date"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Date" />
-                    <ImageView
-                        android:id="@+id/day1Icon"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:src="@drawable/ic_weather_placeholder" />
-                    <TextView
-                        android:id="@+id/day1Temp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="--°C" />
-                </LinearLayout>
+                    android:orientation="horizontal"
+                    android:padding="8dp">
 
-                <!-- Day 2 -->
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:gravity="center">
-                    <TextView
-                        android:id="@+id/day2Date"
-                        android:layout_width="wrap_content"
+                    <!-- Day 1 -->
+                    <LinearLayout
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:text="Date" />
-                    <ImageView
-                        android:id="@+id/day2Icon"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:src="@drawable/ic_weather_placeholder" />
-                    <TextView
-                        android:id="@+id/day2Temp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="--°C" />
-                </LinearLayout>
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:gravity="center">
 
-                <!-- Day 3 -->
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:gravity="center">
-                    <TextView
-                        android:id="@+id/day3Date"
-                        android:layout_width="wrap_content"
+                        <TextView
+                            android:id="@+id/day1Date"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Date" />
+
+                        <ImageView
+                            android:id="@+id/day1Icon"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:contentDescription="Day 1 weather icon"
+                            android:src="@drawable/ic_weather_placeholder" />
+
+                        <TextView
+                            android:id="@+id/day1Temp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="--°C" />
+                    </LinearLayout>
+
+                    <!-- Day 2 -->
+                    <LinearLayout
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:text="Date" />
-                    <ImageView
-                        android:id="@+id/day3Icon"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:src="@drawable/ic_weather_placeholder" />
-                    <TextView
-                        android:id="@+id/day3Temp"
-                        android:layout_width="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:gravity="center">
+
+                        <TextView
+                            android:id="@+id/day2Date"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Date" />
+
+                        <ImageView
+                            android:id="@+id/day2Icon"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:contentDescription="Day 2 weather icon"
+                            android:src="@drawable/ic_weather_placeholder" />
+
+                        <TextView
+                            android:id="@+id/day2Temp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="--°C" />
+                    </LinearLayout>
+
+                    <!-- Day 3 -->
+                    <LinearLayout
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:text="--°C" />
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:gravity="center">
+
+                        <TextView
+                            android:id="@+id/day3Date"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Date" />
+
+                        <ImageView
+                            android:id="@+id/day3Icon"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:contentDescription="Day 3 weather icon"
+                            android:src="@drawable/ic_weather_placeholder" />
+
+                        <TextView
+                            android:id="@+id/day3Temp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="--°C" />
+                    </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
-        </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
 
     </LinearLayout>
 </ScrollView>

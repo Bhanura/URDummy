@@ -1,15 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp">
+    android:fillViewport="true"
+    android:padding="16dp"
+    android:clipToPadding="false">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
+        <!-- Title -->
         <TextView
+            android:id="@+id/add_crops_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Add New Crops"
@@ -17,120 +23,263 @@
             android:textStyle="bold"
             android:layout_marginBottom="16dp" />
 
+        <!-- Crop Name -->
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/crop_name_input_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Crop Name">
+            android:hint="Crop Name"
+            app:boxBackgroundMode="filled"
+            app:boxBackgroundColor="?attr/colorSurface"
+            app:boxCornerRadiusTopStart="12dp"
+            app:boxCornerRadiusTopEnd="12dp"
+            app:boxCornerRadiusBottomStart="12dp"
+            app:boxCornerRadiusBottomEnd="12dp"
+            app:endIconMode="clear_text"
+            app:counterEnabled="true"
+            app:counterMaxLength="80"
+            app:placeholderText="e.g., Tomato">
+
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/cropNameEditText"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:inputType="textCapWords"
+                android:imeOptions="actionNext"
+                android:singleLine="true" />
         </com.google.android.material.textfield.TextInputLayout>
 
+        <!-- Price (per kg) -->
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/price_input_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Price (per kg)"
-            android:layout_marginTop="8dp">
+            android:layout_marginTop="12dp"
+            android:hint="Price"
+            app:suffixText=" per kg"
+            app:helperText="Number only"
+            app:boxBackgroundMode="filled"
+            app:boxBackgroundColor="?attr/colorSurface"
+            app:boxCornerRadiusTopStart="12dp"
+            app:boxCornerRadiusTopEnd="12dp"
+            app:boxCornerRadiusBottomStart="12dp"
+            app:boxCornerRadiusBottomEnd="12dp">
+
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/priceEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="numberDecimal" />
+                android:inputType="numberDecimal"
+                android:imeOptions="actionNext"
+                android:singleLine="true" />
         </com.google.android.material.textfield.TextInputLayout>
 
+        <!-- Description -->
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/description_input_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
             android:hint="Description"
-            android:layout_marginTop="8dp">
+            app:placeholderText="Short notes about the crop"
+            app:counterEnabled="true"
+            app:counterMaxLength="500"
+            app:boxBackgroundMode="filled"
+            app:boxBackgroundColor="?attr/colorSurface"
+            app:boxCornerRadiusTopStart="12dp"
+            app:boxCornerRadiusTopEnd="12dp"
+            app:boxCornerRadiusBottomStart="12dp"
+            app:boxCornerRadiusBottomEnd="12dp"
+            app:endIconMode="clear_text">
+
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/descriptionEditText"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:minLines="3"
+                android:maxLines="6"
+                android:gravity="top|start"
+                android:inputType="textCapSentences|textMultiLine"
+                android:imeOptions="actionNext"
+                android:maxLength="500"
+                android:lineSpacingExtra="2dp"
+                android:scrollbars="vertical"
+                android:overScrollMode="ifContentScrolls" />
         </com.google.android.material.textfield.TextInputLayout>
 
+        <!-- Status -->
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/status_input_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
             android:hint="Status"
-            android:layout_marginTop="8dp">
+            app:helperText="e.g., Available, Out of stock"
+            app:boxBackgroundMode="filled"
+            app:boxBackgroundColor="?attr/colorSurface"
+            app:boxCornerRadiusTopStart="12dp"
+            app:boxCornerRadiusTopEnd="12dp"
+            app:boxCornerRadiusBottomStart="12dp"
+            app:boxCornerRadiusBottomEnd="12dp"
+            app:endIconMode="clear_text">
+
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/statusEditText"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:inputType="textCapWords"
+                android:imeOptions="actionNext"
+                android:singleLine="true" />
         </com.google.android.material.textfield.TextInputLayout>
 
+        <!-- Soil Type -->
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/soil_type_input_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Soil Type (e.g., Loamy, pH 6.0-7.0)"
-            android:layout_marginTop="8dp">
+            android:layout_marginTop="12dp"
+            android:hint="Soil Type"
+            app:placeholderText="e.g., Loamy, pH 6.0–7.0"
+            app:boxBackgroundMode="filled"
+            app:boxBackgroundColor="?attr/colorSurface"
+            app:boxCornerRadiusTopStart="12dp"
+            app:boxCornerRadiusTopEnd="12dp"
+            app:boxCornerRadiusBottomStart="12dp"
+            app:boxCornerRadiusBottomEnd="12dp"
+            app:endIconMode="clear_text">
+
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/soilTypeEditText"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:inputType="textCapSentences"
+                android:imeOptions="actionNext"
+                android:singleLine="true" />
         </com.google.android.material.textfield.TextInputLayout>
 
+        <!-- Sunlight -->
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/sunlight_input_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Sunlight (e.g., 6-8 hours)"
-            android:layout_marginTop="8dp">
+            android:layout_marginTop="12dp"
+            android:hint="Sunlight"
+            app:placeholderText="e.g., 6–8 hours"
+            app:boxBackgroundMode="filled"
+            app:boxBackgroundColor="?attr/colorSurface"
+            app:boxCornerRadiusTopStart="12dp"
+            app:boxCornerRadiusTopEnd="12dp"
+            app:boxCornerRadiusBottomStart="12dp"
+            app:boxCornerRadiusBottomEnd="12dp"
+            app:endIconMode="clear_text">
+
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/sunlightHoursEditText"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:imeOptions="actionNext"
+                android:singleLine="true" />
         </com.google.android.material.textfield.TextInputLayout>
 
+        <!-- Watering Interval -->
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/watering_interval_input_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Watering Interval (e.g., Every 2 days)"
-            android:layout_marginTop="8dp">
+            android:layout_marginTop="12dp"
+            android:hint="Watering Interval"
+            app:placeholderText="e.g., Every 2 days"
+            app:boxBackgroundMode="filled"
+            app:boxBackgroundColor="?attr/colorSurface"
+            app:boxCornerRadiusTopStart="12dp"
+            app:boxCornerRadiusTopEnd="12dp"
+            app:boxCornerRadiusBottomStart="12dp"
+            app:boxCornerRadiusBottomEnd="12dp"
+            app:endIconMode="clear_text">
+
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/wateringIntervalEditText"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:imeOptions="actionNext"
+                android:singleLine="true" />
         </com.google.android.material.textfield.TextInputLayout>
 
+        <!-- Harvest Time -->
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/harvest_time_input_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Harvest Time (e.g., 90 days)"
-            android:layout_marginTop="8dp">
+            android:layout_marginTop="12dp"
+            android:hint="Harvest Time"
+            app:placeholderText="e.g., 90 days"
+            app:boxBackgroundMode="filled"
+            app:boxBackgroundColor="?attr/colorSurface"
+            app:boxCornerRadiusTopStart="12dp"
+            app:boxCornerRadiusTopEnd="12dp"
+            app:boxCornerRadiusBottomStart="12dp"
+            app:boxCornerRadiusBottomEnd="12dp"
+            app:endIconMode="clear_text">
+
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/harvestTimeEditText"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:imeOptions="actionDone"
+                android:singleLine="true" />
         </com.google.android.material.textfield.TextInputLayout>
 
+        <!-- Primary action -->
         <com.google.android.material.button.MaterialButton
             android:id="@+id/addCropButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="Add Crop" />
+            android:layout_marginTop="20dp"
+            android:minHeight="48dp"
+            android:text="Add Crop"
+            android:textAllCaps="false"
+            android:backgroundTint="?attr/colorPrimary"
+            android:textColor="?attr/colorOnPrimary"
+            app:rippleColor="?attr/colorSecondary" />
 
+        <!-- Secondary action (hidden by default) -->
         <com.google.android.material.button.MaterialButton
             android:id="@+id/updateCropButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            android:minHeight="48dp"
             android:text="Update Crop"
-            android:visibility="gone" />
+            android:textAllCaps="false"
+            android:visibility="gone"
+            android:backgroundTint="?attr/colorSurface"
+            android:textColor="?attr/colorPrimary"
+            app:strokeWidth="1dp"
+            app:strokeColor="?attr/colorPrimary"
+            app:rippleColor="?attr/colorSecondary" />
 
+        <!-- Progress -->
         <ProgressBar
             android:id="@+id/progressBar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:visibility="gone" />
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="12dp"
+            android:visibility="gone"
+            android:indeterminate="true"
+            android:indeterminateTint="?attr/colorPrimary" />
 
+        <!-- List -->
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/cropsRecyclerView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp" />
+            android:layout_marginTop="16dp"
+            android:nestedScrollingEnabled="false"
+            android:overScrollMode="ifContentScrolls" />
+
     </LinearLayout>
 </ScrollView>

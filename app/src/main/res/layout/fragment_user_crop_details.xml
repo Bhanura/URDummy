@@ -1,76 +1,182 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="16dp">
+    android:fillViewport="true"
+    android:clipToPadding="false"
+    android:padding="16dp"
+    android:background="?attr/colorSurface">
 
-    <TextView
-        android:id="@+id/cropNameTextView"
-        android:layout_width="wrap_content"
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/crop_detail_card"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="20sp"
-        android:textStyle="bold" />
+        app:cardCornerRadius="16dp"
+        app:cardElevation="4dp"
+        app:contentPadding="16dp">
 
-    <TextView
-        android:id="@+id/descriptionTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:layout_marginTop="8dp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/soilTypeTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:layout_marginTop="8dp" />
+            <!-- Title -->
+            <TextView
+                android:id="@+id/cropNameTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="12dp" />
 
-    <TextView
-        android:id="@+id/sunlightHoursTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:layout_marginTop="8dp" />
+            <com.google.android.material.divider.MaterialDivider
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp" />
 
-    <TextView
-        android:id="@+id/wateringIntervalTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:layout_marginTop="8dp" />
+            <!-- Description -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Description"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:alpha="0.7"
+                android:layout_marginBottom="4dp" />
+            <TextView
+                android:id="@+id/descriptionTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:layout_marginBottom="12dp" />
 
-    <TextView
-        android:id="@+id/plantedDateTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:layout_marginTop="8dp" />
+            <!-- Soil Type -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Soil Type"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:alpha="0.7"
+                android:layout_marginBottom="4dp" />
+            <TextView
+                android:id="@+id/soilTypeTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:layout_marginBottom="12dp" />
 
-    <TextView
-        android:id="@+id/purchaseDateTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:layout_marginTop="8dp" />
+            <!-- Sunlight Hours -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sunlight"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:alpha="0.7"
+                android:layout_marginBottom="4dp" />
+            <TextView
+                android:id="@+id/sunlightHoursTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:layout_marginBottom="12dp" />
 
-    <TextView
-        android:id="@+id/expectedHarvestTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:layout_marginTop="8dp" />
+            <!-- Watering Interval -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Watering Interval"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:alpha="0.7"
+                android:layout_marginBottom="4dp" />
+            <TextView
+                android:id="@+id/wateringIntervalTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:layout_marginBottom="12dp" />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/plantNowButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Plant Now"
-        android:layout_marginTop="16dp" />
+            <!-- Planted Date -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Planted Date"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:alpha="0.7"
+                android:layout_marginBottom="4dp" />
+            <TextView
+                android:id="@+id/plantedDateTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:layout_marginBottom="12dp" />
 
-    <ProgressBar
-        android:id="@+id/progressBar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:visibility="gone" />
-</LinearLayout>
+            <!-- Purchase Date -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Purchase Date"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:alpha="0.7"
+                android:layout_marginBottom="4dp" />
+            <TextView
+                android:id="@+id/purchaseDateTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:layout_marginBottom="12dp" />
+
+            <!-- Expected Harvest -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Expected Harvest"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:alpha="0.7"
+                android:layout_marginBottom="4dp" />
+            <TextView
+                android:id="@+id/expectedHarvestTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:layout_marginBottom="16dp" />
+
+            <com.google.android.material.divider.MaterialDivider
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp" />
+
+            <!-- Primary action -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/plantNowButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Plant Now"
+                android:textAllCaps="false"
+                android:minHeight="48dp"
+                android:layout_marginTop="4dp"
+                android:textColor="?attr/colorOnPrimary"
+                app:backgroundTint="?attr/colorPrimary"
+                app:rippleColor="?attr/colorSecondary" />
+
+            <!-- Progress -->
+            <ProgressBar
+                android:id="@+id/progressBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="12dp"
+                android:visibility="gone"
+                android:indeterminate="true"
+                android:indeterminateTint="?attr/colorPrimary" />
+
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+</androidx.core.widget.NestedScrollView>

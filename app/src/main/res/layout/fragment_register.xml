@@ -5,30 +5,33 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
-    android:background="@color/background_light">
+    android:clipToPadding="false"
+    android:padding="16dp"
+    android:background="?attr/colorSurface">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="16dp">
+        android:layout_height="wrap_content">
 
-        <androidx.cardview.widget.CardView
+        <!-- Container card for form -->
+        <com.google.android.material.card.MaterialCardView
             android:id="@+id/form_card"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="16dp"
-            android:layout_marginTop="32dp"
-            app:cardCornerRadius="24dp"
-            app:cardElevation="12dp"
-            app:cardBackgroundColor="@color/surface"
+            android:layout_marginTop="24dp"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="8dp"
+            app:cardBackgroundColor="?attr/colorSurface"
             app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintVertical_bias="0.2"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="24dp">
+                android:padding="20dp">
 
                 <!-- Name Input -->
                 <com.google.android.material.textfield.TextInputLayout
@@ -37,24 +40,24 @@
                     android:layout_height="wrap_content"
                     android:hint="Name"
                     app:boxBackgroundMode="filled"
+                    app:boxBackgroundColor="?attr/colorSurface"
                     app:boxCornerRadiusTopStart="12dp"
                     app:boxCornerRadiusTopEnd="12dp"
                     app:boxCornerRadiusBottomStart="12dp"
                     app:boxCornerRadiusBottomEnd="12dp"
-                    app:boxBackgroundColor="@color/surface_variant"
+                    app:endIconMode="clear_text"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    style="@style/Widget.Material3.TextInputLayout.FilledBox">
+                    app:layout_constraintEnd_toEndOf="parent">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/name_edit_text"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:minHeight="56dp"
                         android:inputType="textPersonName"
-                        android:padding="14dp"
-                        android:singleLine="true"
-                        android:textSize="12sp" />
+                        android:imeOptions="actionNext"
+                        android:singleLine="true" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <!-- Location Input -->
@@ -62,25 +65,27 @@
                     android:id="@+id/location_container"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginTop="12dp"
                     android:hint="Location"
                     app:boxBackgroundMode="filled"
+                    app:boxBackgroundColor="?attr/colorSurface"
                     app:boxCornerRadiusTopStart="12dp"
                     app:boxCornerRadiusTopEnd="12dp"
                     app:boxCornerRadiusBottomStart="12dp"
                     app:boxCornerRadiusBottomEnd="12dp"
-                    app:boxBackgroundColor="@color/surface_variant"
+                    app:endIconMode="clear_text"
                     app:layout_constraintTop_toBottomOf="@id/name_container"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    style="@style/Widget.Material3.TextInputLayout.FilledBox">
+                    app:layout_constraintEnd_toEndOf="parent">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/location_edit_text"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:minHeight="56dp"
                         android:inputType="text"
-                        android:padding="14dp" />
+                        android:imeOptions="actionNext"
+                        android:singleLine="true" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <!-- Email Input -->
@@ -88,26 +93,28 @@
                     android:id="@+id/email_container"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginTop="12dp"
                     android:hint="Email"
-                    app:startIconDrawable="@drawable/ic_email"
                     app:boxBackgroundMode="filled"
+                    app:boxBackgroundColor="?attr/colorSurface"
                     app:boxCornerRadiusTopStart="12dp"
                     app:boxCornerRadiusTopEnd="12dp"
                     app:boxCornerRadiusBottomStart="12dp"
                     app:boxCornerRadiusBottomEnd="12dp"
-                    app:boxBackgroundColor="@color/surface_variant"
+                    app:endIconMode="clear_text"
                     app:layout_constraintTop_toBottomOf="@id/location_container"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    style="@style/Widget.Material3.TextInputLayout.FilledBox">
+                    app:layout_constraintEnd_toEndOf="parent">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/email_edit_text"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:minHeight="56dp"
                         android:inputType="textEmailAddress"
-                        android:padding="14dp"
+                        android:imeOptions="actionNext"
+                        android:singleLine="true"
+                        android:autofillHints="emailAddress"
                         android:transitionName="email_transition" />
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -116,27 +123,28 @@
                     android:id="@+id/password_container"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginTop="12dp"
                     android:hint="Password"
-                    app:startIconDrawable="@drawable/ic_lock"
                     app:endIconMode="password_toggle"
                     app:boxBackgroundMode="filled"
+                    app:boxBackgroundColor="?attr/colorSurface"
                     app:boxCornerRadiusTopStart="12dp"
                     app:boxCornerRadiusTopEnd="12dp"
                     app:boxCornerRadiusBottomStart="12dp"
                     app:boxCornerRadiusBottomEnd="12dp"
-                    app:boxBackgroundColor="@color/surface_variant"
                     app:layout_constraintTop_toBottomOf="@id/email_container"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    style="@style/Widget.Material3.TextInputLayout.FilledBox">
+                    app:layout_constraintEnd_toEndOf="parent">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/password_edit_text"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:minHeight="56dp"
                         android:inputType="textPassword"
-                        android:padding="14dp"
+                        android:imeOptions="actionNext"
+                        android:singleLine="true"
+                        android:autofillHints="password"
                         android:transitionName="password_transition" />
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -145,27 +153,27 @@
                     android:id="@+id/confirm_password_container"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginTop="12dp"
                     android:hint="Confirm Password"
-                    app:startIconDrawable="@drawable/ic_lock"
                     app:endIconMode="password_toggle"
                     app:boxBackgroundMode="filled"
+                    app:boxBackgroundColor="?attr/colorSurface"
                     app:boxCornerRadiusTopStart="12dp"
                     app:boxCornerRadiusTopEnd="12dp"
                     app:boxCornerRadiusBottomStart="12dp"
                     app:boxCornerRadiusBottomEnd="12dp"
-                    app:boxBackgroundColor="@color/surface_variant"
                     app:layout_constraintTop_toBottomOf="@id/password_container"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    style="@style/Widget.Material3.TextInputLayout.FilledBox">
+                    app:layout_constraintEnd_toEndOf="parent">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/confirm_password_edit_text"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:minHeight="56dp"
                         android:inputType="textPassword"
-                        android:padding="14dp"
+                        android:imeOptions="actionDone"
+                        android:singleLine="true"
                         android:transitionName="confirm_password_transition" />
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -174,15 +182,16 @@
                     android:id="@+id/register_button"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="24dp"
+                    android:layout_marginTop="20dp"
                     android:text="Register"
-                    android:textColor="@color/white"
+                    android:textAllCaps="false"
                     android:textSize="16sp"
-                    android:paddingVertical="14dp"
+                    android:minHeight="48dp"
+                    android:paddingVertical="12dp"
+                    android:textColor="?attr/colorOnPrimary"
+                    app:backgroundTint="?attr/colorPrimary"
+                    app:rippleColor="?attr/colorSecondary"
                     app:cornerRadius="12dp"
-                    app:backgroundTint="@color/primary"
-                    app:rippleColor="@color/primary_variant"
-                    style="@style/Widget.Material3.Button.ElevatedButton"
                     app:layout_constraintTop_toBottomOf="@id/confirm_password_container"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -193,8 +202,10 @@
                     android:id="@+id/progress_bar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginTop="12dp"
                     android:visibility="gone"
+                    android:indeterminate="true"
+                    android:indeterminateTint="?attr/colorPrimary"
                     app:layout_constraintTop_toBottomOf="@id/register_button"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent" />
@@ -205,20 +216,23 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
-                    android:layout_marginBottom="16dp"
+                    android:layout_marginBottom="8dp"
                     android:text="Already have an account? Login here"
-                    android:textColor="@color/primary"
+                    android:textColor="?attr/colorPrimary"
                     android:textSize="14sp"
                     android:textStyle="bold"
-                    android:padding="8dp"
+                    android:paddingHorizontal="8dp"
+                    android:paddingVertical="4dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:transitionName="login_transition"
                     app:layout_constraintTop_toBottomOf="@id/progress_bar"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:transitionName="login_transition" />
+                    app:layout_constraintBottom_toBottomOf="parent" />
+
             </androidx.constraintlayout.widget.ConstraintLayout>
-        </androidx.cardview.widget.CardView>
+        </com.google.android.material.card.MaterialCardView>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>

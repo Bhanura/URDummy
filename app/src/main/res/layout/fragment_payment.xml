@@ -1,104 +1,201 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp">
+    android:fillViewport="true"
+    android:clipToPadding="false"
+    android:padding="16dp"
+    android:background="?attr/colorSurface">
 
-    <LinearLayout
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/payment_card"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Payment Details"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            android:layout_marginBottom="16dp" />
-
-        <TextView
-            android:id="@+id/paymentCropName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="18sp"
-            android:layout_marginBottom="8dp" />
-
-        <TextView
-            android:id="@+id/paymentAmount"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="18sp"
-            android:layout_marginBottom="16dp" />
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Card Number">
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/cardNumberEditText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="number"
-                android:maxLength="16" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Cardholder Name">
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/cardholderNameEditText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="textPersonName" />
-        </com.google.android.material.textfield.TextInputLayout>
+        app:cardCornerRadius="16dp"
+        app:cardElevation="4dp"
+        app:contentPadding="16dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginBottom="16dp">
+            android:orientation="vertical">
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="0dp"
-                android:layout_weight="1"
+            <!-- Title -->
+            <TextView
+                android:id="@+id/payment_title"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:hint="Expiry Date">
+                android:text="Payment Details"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="12dp" />
+
+            <!-- Summary -->
+            <TextView
+                android:id="@+id/paymentCropName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:layout_marginBottom="4dp" />
+
+            <TextView
+                android:id="@+id/paymentAmount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:layout_marginBottom="12dp" />
+
+            <com.google.android.material.divider.MaterialDivider
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp" />
+
+            <!-- Card Number -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/card_number_input_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Card Number"
+                app:boxBackgroundMode="filled"
+                app:boxBackgroundColor="?attr/colorSurface"
+                app:boxCornerRadiusTopStart="12dp"
+                app:boxCornerRadiusTopEnd="12dp"
+                app:boxCornerRadiusBottomStart="12dp"
+                app:boxCornerRadiusBottomEnd="12dp"
+                app:endIconMode="clear_text"
+                app:counterEnabled="true"
+                app:counterMaxLength="16">
+
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/expiryDateEditText"
+                    android:id="@+id/cardNumberEditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="text"
-                    android:maxLength="5"
-                    android:hint="MM/YY" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"
-                android:hint="CVV">
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/cvvEditText"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:minHeight="56dp"
                     android:inputType="number"
-                    android:maxLength="3" />
+                    android:maxLength="16"
+                    android:imeOptions="actionNext"
+                    android:singleLine="true"
+                    android:autofillHints="creditCardNumber" />
             </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Cardholder Name -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/cardholder_name_input_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:hint="Cardholder Name"
+                app:boxBackgroundMode="filled"
+                app:boxBackgroundColor="?attr/colorSurface"
+                app:boxCornerRadiusTopStart="12dp"
+                app:boxCornerRadiusTopEnd="12dp"
+                app:boxCornerRadiusBottomStart="12dp"
+                app:boxCornerRadiusBottomEnd="12dp"
+                app:endIconMode="clear_text">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/cardholderNameEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="56dp"
+                    android:inputType="textPersonName"
+                    android:imeOptions="actionNext"
+                    android:singleLine="true"
+                    android:autofillHints="personName" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Expiry + CVV -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="12dp">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/expiry_input_layout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="Expiry Date"
+                    app:placeholderText="MM/YY"
+                    app:helperText="MM/YY"
+                    app:boxBackgroundMode="filled"
+                    app:boxBackgroundColor="?attr/colorSurface"
+                    app:boxCornerRadiusTopStart="12dp"
+                    app:boxCornerRadiusTopEnd="12dp"
+                    app:boxCornerRadiusBottomStart="12dp"
+                    app:boxCornerRadiusBottomEnd="12dp">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/expiryDateEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:minHeight="56dp"
+                        android:inputType="text"
+                        android:maxLength="5"
+                        android:hint="MM/YY"
+                        android:imeOptions="actionNext"
+                        android:singleLine="true"
+                        android:autofillHints="creditCardExpirationDate" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <Space
+                    android:layout_width="12dp"
+                    android:layout_height="1dp" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/cvv_input_layout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="CVV"
+                    app:helperText="3-digit code"
+                    app:endIconMode="password_toggle"
+                    app:boxBackgroundMode="filled"
+                    app:boxBackgroundColor="?attr/colorSurface"
+                    app:boxCornerRadiusTopStart="12dp"
+                    app:boxCornerRadiusTopEnd="12dp"
+                    app:boxCornerRadiusBottomStart="12dp"
+                    app:boxCornerRadiusBottomEnd="12dp">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/cvvEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:minHeight="56dp"
+                        android:inputType="numberPassword"
+                        android:maxLength="3"
+                        android:imeOptions="actionDone"
+                        android:singleLine="true"
+                        android:autofillHints="creditCardSecurityCode" />
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+
+            <!-- Confirm -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/confirmPaymentButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:minHeight="48dp"
+                android:text="Confirm Payment"
+                android:textAllCaps="false"
+                android:textColor="?attr/colorOnPrimary"
+                app:backgroundTint="?attr/colorPrimary"
+                app:rippleColor="?attr/colorSecondary" />
+
+            <!-- Progress -->
+            <ProgressBar
+                android:id="@+id/paymentProgressBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="12dp"
+                android:visibility="gone"
+                android:indeterminate="true"
+                android:indeterminateTint="?attr/colorPrimary" />
         </LinearLayout>
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/confirmPaymentButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Confirm Payment" />
-
-        <ProgressBar
-            android:id="@+id/paymentProgressBar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:visibility="gone" />
-    </LinearLayout>
-</ScrollView>
+    </com.google.android.material.card.MaterialCardView>
+</androidx.core.widget.NestedScrollView>
