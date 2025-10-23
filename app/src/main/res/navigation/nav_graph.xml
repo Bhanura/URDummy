@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/splashFragment">
+
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.example.urbanroots.presentation.fragments.SplashFragment"
+        android:label="UrbanRoots"
+        tools:layout="@layout/fragment_splash">
+        <action
+            android:id="@+id/action_splashFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:popUpTo="@id/splashFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.urbanroots.presentation.fragments.LoginFragment"
+        android:label="Login"
+        tools:layout="@layout/fragment_login">
+        <action
+            android:id="@+id/action_loginFragment_to_dashboardFragment"
+            app:destination="@id/dashboardFragment"
+            app:popUpTo="@id/loginFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_loginFragment_to_registerFragment"
+            app:destination="@id/registerFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.example.urbanroots.presentation.fragments.RegisterFragment"
+        android:label="Register"
+        tools:layout="@layout/fragment_register">
+        <action
+            android:id="@+id/action_registerFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+
+
+
+        <fragment
+            android:id="@+id/dashboardFragment"
+            android:name="com.example.urbanroots.presentation.fragments.DashboardFragment"
+            android:label="Dashboard"
+            tools:layout="@layout/fragment_dashboard">
+            <action
+                android:id="@+id/action_dashboardFragment_to_loginFragment"
+                app:destination="@id/loginFragment"
+                app:popUpTo="@id/nav_graph"
+                app:popUpToInclusive="true" />
+            <action
+                android:id="@+id/action_dashboardFragment_to_profileFragment"
+                app:destination="@id/profileFragment" />
+            <action
+                android:id="@+id/action_dashboardFragment_to_editProfileFragment"
+                app:destination="@id/editProfileFragment" />
+            <action
+                android:id="@+id/action_dashboardFragment_to_findCropsFragment"
+                app:destination="@id/findCropsFragment" />
+            <action
+                android:id="@+id/action_dashboardFragment_to_adminFragment"
+                app:destination="@id/adminFragment" />
+            <action
+                android:id="@+id/action_dashboardFragment_to_addCropFragment"
+                app:destination="@id/addCropFragment" />
+            <action
+                android:id="@+id/action_dashboardFragment_to_communityFragment"
+                app:destination="@id/communityFragment" />
+            <action
+                android:id="@+id/action_dashboardFragment_to_calendarFragment"
+                app:destination="@id/calendarFragment" />
+            <action
+                android:id="@+id/action_dashboardFragment_to_userCropDetailsFragment"
+                app:destination="@id/userCropDetailsFragment" />
+        </fragment>
+
+
+    <fragment
+        android:id="@+id/userCropDetailsFragment"
+        android:name="com.example.urbanroots.presentation.fragments.UserCropDetailsFragment"
+        android:label="User Crop Details" >
+        <!-- Optional: Add action to navigate back to Dashboard -->
+        <action
+            android:id="@+id/action_userCropDetailsFragment_to_dashboardFragment"
+            app:destination="@id/dashboardFragment"
+            app:popUpTo="@id/dashboardFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/addCareTaskFragment"
+        android:name="com.example.urbanroots.presentation.fragments.AddCareTaskFragment"
+        android:label="Add Care Task"
+        tools:layout="@layout/fragment_add_care_task">
+        <action
+            android:id="@+id/action_addCareTaskFragment_to_dashboardFragment"
+            app:destination="@id/dashboardFragment"
+            app:popUpTo="@id/addCareTaskFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+        <fragment
+            android:id="@+id/calendarFragment"
+            android:name="com.example.urbanroots.presentation.fragments.CalendarFragment"
+            android:label="Calendar"
+            tools:layout="@layout/fragment_calendar">
+            <action
+                android:id="@+id/action_calendarFragment_to_dashboardFragment"
+                app:destination="@id/dashboardFragment"
+                app:popUpTo="@id/calendarFragment"
+                app:popUpToInclusive="true" />
+        </fragment>
+
+
+    <fragment
+        android:id="@+id/addCropFragment"
+        android:name="com.example.urbanroots.presentation.fragments.AddCropFragment"
+        android:label="Add Crop"
+        tools:layout="@layout/fragment_add_crop">
+        <action
+            android:id="@+id/action_addCropFragment_to_dashboardFragment"
+            app:destination="@id/dashboardFragment"
+            app:popUpTo="@id/addCropFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/findCropsFragment"
+        android:name="com.example.urbanroots.presentation.fragments.FindCropsFragment"
+        android:label="Find Crops"
+        tools:layout="@layout/fragment_find_crops">
+        <action
+            android:id="@+id/action_findCropsFragment_to_addCareTaskFragment"
+            app:destination="@id/addCareTaskFragment" />
+        <action
+            android:id="@+id/action_findCropsFragment_to_adminFragment"
+            app:destination="@id/adminFragment" />
+        <action
+            android:id="@+id/action_findCropsFragment_to_cropDetailsFragment"
+            app:destination="@id/cropDetailsFragment"
+            app:popUpTo="@id/findCropsFragment"
+            app:popUpToInclusive="false" />
+        <action
+            android:id="@+id/action_findCropsFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/paymentFragment"
+        android:name="com.example.urbanroots.presentation.fragments.PaymentFragment"
+        android:label="Payment"
+        tools:layout="@layout/fragment_payment">
+        <action
+            android:id="@+id/action_paymentFragment_to_dashboardFragment"
+            app:destination="@id/dashboardFragment"
+            app:popUpTo="@id/findCropsFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <!-- Update the cropDetailsFragment to include the action to paymentFragment -->
+    <fragment
+        android:id="@+id/cropDetailsFragment"
+        android:name="com.example.urbanroots.presentation.fragments.CropDetailsFragment"
+        android:label="Crop Details"
+        tools:layout="@layout/fragment_crop_details">
+        <action
+            android:id="@+id/action_cropDetailsFragment_to_paymentFragment"
+            app:destination="@id/paymentFragment"
+            app:popUpTo="@id/findCropsFragment"
+            app:popUpToInclusive="false" />
+        <action
+            android:id="@+id/action_cropDetailsFragment_to_dashboardFragment"
+            app:destination="@id/dashboardFragment"
+            app:popUpTo="@id/findCropsFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_cropDetailsFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/adminFragment"
+        android:name="com.example.urbanroots.presentation.fragments.AdminFragment"
+        android:label="Admin Panel"
+        tools:layout="@layout/fragment_admin">
+        <action
+            android:id="@+id/action_adminFragment_to_dashboardFragment"
+            app:destination="@id/dashboardFragment"
+            app:popUpTo="@id/adminFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/notificationsFragment"
+        android:name="com.example.urbanroots.presentation.fragments.NotificationsFragment"
+        android:label="Notifications"
+        tools:layout="@layout/fragment_notifications">
+        <action
+            android:id="@+id/action_notificationsFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+        <action
+            android:id="@+id/action_notificationsFragment_to_editProfileFragment"
+            app:destination="@id/editProfileFragment" />
+        <action
+            android:id="@+id/action_notificationsFragment_to_communityFragment"
+            app:destination="@id/communityFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.example.urbanroots.presentation.fragments.SettingsFragment"
+        android:label="Settings"
+        tools:layout="@layout/fragment_settings">
+        <action
+            android:id="@+id/action_settingsFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+        <action
+            android:id="@+id/action_settingsFragment_to_editProfileFragment"
+            app:destination="@id/editProfileFragment" />
+        <action
+            android:id="@+id/action_settingsFragment_to_communityFragment"
+            app:destination="@id/communityFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.urbanroots.presentation.fragments.ProfileFragment"
+        android:label="Profile"
+        tools:layout="@layout/fragment_profile">
+        <action
+            android:id="@+id/action_profileFragment_to_editProfileFragment"
+            app:destination="@id/editProfileFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:popUpTo="@id/nav_graph"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_profileFragment_to_communityFragment"
+            app:destination="@id/communityFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/editProfileFragment"
+        android:name="com.example.urbanroots.presentation.fragments.EditProfileFragment"
+        android:label="Edit Profile"
+        tools:layout="@layout/fragment_edit_profile">
+        <action
+            android:id="@+id/action_editProfileFragment_to_profileFragment"
+            app:destination="@id/profileFragment"
+            app:popUpTo="@id/editProfileFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_editProfileFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:popUpTo="@id/nav_graph"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/communityFragment"
+        android:name="com.example.urbanroots.presentation.fragments.CommunityFragment"
+        android:label="Community"
+        tools:layout="@layout/fragment_community">
+        <action
+            android:id="@+id/action_communityFragment_to_dashboardFragment"
+            app:destination="@id/dashboardFragment" />
+    </fragment>
+</navigation>

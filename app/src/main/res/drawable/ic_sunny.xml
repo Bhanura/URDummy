@@ -1,0 +1,14 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <!-- Sun Center -->
+    <path
+        android:fillColor="#FFFF00"
+        android:pathData="M12,12m-5,0a5,5 0,1,1,10,0a5,5 0,1,1,-10,0" />
+    <!-- Sun Rays -->
+    <path
+        android:fillColor="#FFFF00"
+        android:pathData="M12,3v3m0,12v3m-9,-9h3m12,0h3m-2.12,-6.88l-2.12,2.12m4.24,4.24l-2.12,2.12m-2.12,-8.48l2.12,2.12m-4.24,4.24l2.12,2.12" />
+</vector>
